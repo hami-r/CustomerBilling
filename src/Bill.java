@@ -18,7 +18,9 @@ public class Bill {
             System.out.println("Select your option:");
             int choice = scanner.nextInt();
             switch (choice) {
-
+                case 1:
+                    generateBill(food);
+                    break;
                 case 3:
                     System.out.println("Exiting the bill system...");
                     System.exit(0);
@@ -29,6 +31,34 @@ public class Bill {
 
             }
         }
+    }
+
+    static void generateBill(FoodItems food){
+        System.out.println("Enter your name: ");
+        String name = scanner.next();
+        System.out.println("Enter your phone number: ");
+        long phoneNumber = scanner.nextLong();
+        Customer customer = new Customer(name,phoneNumber);
+        System.out.println("Enter details>>");
+        System.out.print("Tea: ");
+        int noOfTea = scanner.nextInt();
+        System.out.print("Coffee: ");
+        int noOfCoffee = scanner.nextInt();
+        System.out.print("Snacks:");
+        int noOfSnacks = scanner.nextInt();
+        System.out.print("Idli: ");
+        int noOfIdlis = scanner.nextInt();
+        System.out.print("Dosa: ");
+        int noOfDosa = scanner.nextInt();
+        int total = noOfTea * food.tea +
+                noOfCoffee * food.coffee +
+                noOfSnacks * food.snacks +
+                noOfIdlis * food.idli +
+                noOfDosa * food.dosa;
+        System.out.println("Total amount = " + total);
+        customer.trList.add(total);
+        list.put(customer,customer.trList);
+
     }
 
 
