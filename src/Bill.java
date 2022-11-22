@@ -21,6 +21,9 @@ public class Bill {
                 case 1:
                     generateBill(food);
                     break;
+                case 2:
+                    viewTransaction();
+                    break;
                 case 3:
                     System.out.println("Exiting the bill system...");
                     System.exit(0);
@@ -59,6 +62,22 @@ public class Bill {
         customer.trList.add(total);
         list.put(customer,customer.trList);
 
+    }
+
+    static void viewTransaction() {
+        System.out.println("Enter your name: ");
+        String name = scanner.next();
+        System.out.println("Enter your phone number: ");
+        long phoneNumber = scanner.nextLong();
+        Customer customer = new Customer(name, phoneNumber);
+        for (Map.Entry<Customer, ArrayList> entry : list.entrySet()) {
+            String nam = entry.getKey().name;
+            Long phone = entry.getKey().phoneNumber;
+            if(nam.equals(name) && phoneNumber==phone) {
+                System.out.println(entry.getValue());
+            }
+
+        }
     }
 
 
