@@ -74,7 +74,10 @@ public class Bill {
             String nam = entry.getKey().name;
             Long phone = entry.getKey().phoneNumber;
             if(nam.equals(name) && phoneNumber==phone) {
-                System.out.println(entry.getValue());
+                System.out.println("Transaction #" + customer.count++ + " Rs. " + entry.getValue());
+            }
+            else {
+                System.out.println("User not found.\n Please try again");
             }
 
         }
